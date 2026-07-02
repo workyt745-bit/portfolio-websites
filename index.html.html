@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus Digital — Growth Marketing Agency</title>
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#0f1117;
+    --muted:#6b7280;
+    --soft:#f4f6f9;
+    --accent:#3b5bdb;
+    --accent-light:#eef2ff;
+    --green:#2f9e44;
+    --line:#e5e7eb;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.6;
+  }
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  /* HEADER */
+  header{
+    position:sticky; top:0; z-index:50; background:#fff;
+    border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+    padding:1.1rem 6vw;
+  }
+  .logo{font-weight:800; font-size:1.2rem; letter-spacing:-0.02em;}
+  .logo span{color:var(--accent);}
+  nav{display:flex; gap:2rem; font-size:0.9rem; font-weight:500; color:var(--muted);}
+  nav a:hover{color:var(--ink);}
+  .header-cta{
+    background:var(--accent); color:#fff; border:none; padding:0.6rem 1.3rem;
+    border-radius:6px; font-size:0.88rem; font-weight:600;
+    transition:opacity 0.2s;
+  }
+  .header-cta:hover{opacity:0.88;}
+
+  /* HERO */
+  .hero{
+    padding:6rem 6vw 5rem;
+    background:linear-gradient(160deg, #f8f9ff 0%, #fff 60%);
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:4rem; align-items:center;
+    max-width:1280px; margin:0 auto;
+  }
+  .hero-tag{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:var(--accent-light); color:var(--accent);
+    padding:0.35rem 0.9rem; border-radius:99px; font-size:0.8rem; font-weight:600;
+    margin-bottom:1.4rem;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem,4.5vw,3.4rem); font-weight:800;
+    letter-spacing:-0.03em; line-height:1.08;
+  }
+  .hero h1 span{color:var(--accent);}
+  .hero p{color:var(--muted); margin-top:1.2rem; font-size:1.08rem; max-width:42ch;}
+  .hero-actions{display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--accent); color:#fff; border:none; padding:0.85rem 1.7rem;
+    border-radius:8px; font-weight:700; font-size:0.95rem;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(59,91,219,0.3);}
+  .btn-outline{
+    background:#fff; color:var(--ink); border:1.5px solid var(--line); padding:0.85rem 1.7rem;
+    border-radius:8px; font-weight:600; font-size:0.95rem;
+  }
+  .btn-outline:hover{border-color:var(--accent); color:var(--accent);}
+  .hero-trust{display:flex; align-items:center; gap:0.8rem; margin-top:1.8rem; font-size:0.82rem; color:var(--muted);}
+  .avatar-stack{display:flex;}
+  .avatar{
+    width:32px; height:32px; border-radius:50%; border:2px solid #fff;
+    margin-right:-8px; display:flex; align-items:center; justify-content:center;
+    font-size:0.7rem; font-weight:700; color:#fff;
+  }
+
+  /* STATS */
+  .stats{
+    background:var(--ink); color:#fff;
+    display:grid; grid-template-columns:repeat(4,1fr);
+    max-width:1280px; margin:0 auto;
+  }
+  .stat{
+    padding:2.5rem; text-align:center; border-right:1px solid rgba(255,255,255,0.08);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{font-size:2.2rem; font-weight:800; color:#fff; letter-spacing:-0.02em;}
+  .stat .num span{color:#748ffc;}
+  .stat .label{color:#9ca3af; font-size:0.85rem; margin-top:0.3rem;}
+
+  /* SERVICES */
+  .services{padding:6rem 6vw; max-width:1280px; margin:0 auto;}
+  .section-label{color:var(--accent); font-size:0.82rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.7rem;}
+  .section-title{font-size:clamp(1.8rem,3vw,2.4rem); font-weight:800; letter-spacing:-0.02em; max-width:22ch; margin-bottom:3rem;}
+  .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;}
+  .service-card{
+    background:var(--soft); border-radius:12px; padding:2rem;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+    border:1px solid transparent;
+  }
+  .service-card:hover{transform:translateY(-4px); box-shadow:0 12px 30px -10px rgba(15,17,23,0.12); border-color:var(--accent);}
+  .service-icon{
+    width:48px; height:48px; border-radius:10px; background:var(--accent-light);
+    display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1.2rem;
+  }
+  .service-card h3{font-size:1.1rem; font-weight:700; margin-bottom:0.5rem;}
+  .service-card p{color:var(--muted); font-size:0.9rem;}
+
+  /* RESULTS */
+  .results{background:var(--soft); padding:6rem 6vw;}
+  .results-inner{max-width:1280px; margin:0 auto;}
+  .results-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem;}
+  .result-card{
+    background:#fff; border-radius:12px; padding:2rem; border:1px solid var(--line);
+  }
+  .result-card .metric{font-size:2.4rem; font-weight:800; color:var(--accent); letter-spacing:-0.02em;}
+  .result-card .metric-label{font-weight:600; margin:0.4rem 0 0.6rem;}
+  .result-card p{color:var(--muted); font-size:0.88rem;}
+  .result-card .industry{
+    display:inline-block; margin-top:1rem; background:var(--accent-light); color:var(--accent);
+    font-size:0.72rem; font-weight:700; padding:0.25rem 0.6rem; border-radius:99px;
+  }
+
+  /* PROCESS */
+  .process{padding:6rem 6vw; max-width:1280px; margin:0 auto;}
+  .process-steps{display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:3rem;}
+  .process-step{position:relative;}
+  .step-num{
+    width:40px; height:40px; border-radius:10px; background:var(--accent);
+    color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center;
+    margin-bottom:1rem; font-size:0.95rem;
+  }
+  .process-step h3{font-weight:700; margin-bottom:0.4rem;}
+  .process-step p{color:var(--muted); font-size:0.88rem;}
+  .step-line{
+    position:absolute; top:20px; left:50px; right:-20px; height:1px;
+    background:var(--line); z-index:0;
+  }
+  .process-step:last-child .step-line{display:none;}
+
+  /* CTA */
+  .cta{
+    margin:0 6vw 6rem; border-radius:16px;
+    background:linear-gradient(135deg, var(--accent), #5c7cfa);
+    padding:4rem; text-align:center; color:#fff;
+  }
+  .cta h2{font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; margin-bottom:0.8rem;}
+  .cta p{opacity:0.85; max-width:44ch; margin:0 auto 2rem;}
+  .cta .btn-white{
+    background:#fff; color:var(--accent); border:none; padding:0.9rem 2rem;
+    border-radius:8px; font-weight:700; font-size:0.95rem;
+  }
+
+  footer{
+    border-top:1px solid var(--line); padding:2.5rem 6vw;
+    display:flex; justify-content:space-between; color:var(--muted); font-size:0.85rem; flex-wrap:wrap; gap:1rem;
+  }
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;}
+    .hero-visual{display:none;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .services-grid, .results-grid, .process-steps{grid-template-columns:1fr;}
+    nav{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Nexus<span>.</span>Digital</div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#results">Results</a>
+    <a href="#process">Process</a>
+    <a href="#">Blog</a>
+  </nav>
+  <button class="header-cta">Get Free Audit</button>
+</header>
+
+<div style="max-width:1280px; margin:0 auto;">
+  <div class="hero">
+    <div>
+      <div class="hero-tag">🚀 Trusted by 200+ businesses</div>
+      <h1>Grow faster with <span>data-driven</span> digital marketing.</h1>
+      <p>We combine strategy, creativity, and AI-powered tools to drive real revenue — not just clicks and impressions.</p>
+      <div class="hero-actions">
+        <button class="btn-primary">Start Growing Today</button>
+        <button class="btn-outline">See Our Results →</button>
+      </div>
+      <div class="hero-trust">
+        <div class="avatar-stack">
+          <div class="avatar" style="background:#3b5bdb;">A</div>
+          <div class="avatar" style="background:#2f9e44;">B</div>
+          <div class="avatar" style="background:#e67700;">C</div>
+          <div class="avatar" style="background:#c92a2a;">D</div>
+        </div>
+        <span>Join 200+ happy clients growing with Nexus</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- Visual placeholder — clean card -->
+      <div style="background:var(--soft); border-radius:16px; padding:2rem; border:1px solid var(--line);">
+        <div style="font-size:0.8rem; color:var(--muted); margin-bottom:1rem; font-weight:600;">CAMPAIGN OVERVIEW — OCT 2026</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+          <div style="background:#fff; border-radius:10px; padding:1rem; border:1px solid var(--line);">
+            <div style="color:var(--muted); font-size:0.75rem;">ROAS</div>
+            <div style="font-size:1.6rem; font-weight:800; color:var(--accent);">4.8x</div>
+          </div>
+          <div style="background:#fff; border-radius:10px; padding:1rem; border:1px solid var(--line);">
+            <div style="color:var(--muted); font-size:0.75rem;">Revenue</div>
+            <div style="font-size:1.6rem; font-weight:800; color:var(--green);">+62%</div>
+          </div>
+        </div>
+        <div style="background:#fff; border-radius:10px; padding:1rem; border:1px solid var(--line);">
+          <div style="color:var(--muted); font-size:0.75rem; margin-bottom:0.6rem;">MONTHLY LEADS</div>
+          <div style="display:flex; align-items:flex-end; gap:6px; height:60px;">
+            ${[30,45,38,55,50,70,65,82,78,95,88,110].map(h=>`<div style="flex:1; background:var(--accent-light); border-radius:3px 3px 0 0; height:${h/1.1}%; position:relative;"><div style="position:absolute;bottom:0;left:0;right:0;background:var(--accent);border-radius:3px 3px 0 0;height:${40+Math.random()*60}%;"></div></div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">200<span>+</span></div><div class="label">Clients Worldwide</div></div>
+  <div class="stat"><div class="num">4.8<span>x</span></div><div class="label">Average ROAS</div></div>
+  <div class="stat"><div class="num">$12<span>M+</span></div><div class="label">Revenue Generated</div></div>
+  <div class="stat"><div class="num">98<span>%</span></div><div class="label">Client Retention</div></div>
+</div>
+
+<section class="services" id="services">
+  <div class="section-label">What We Do</div>
+  <div class="section-title">Everything you need to grow online.</div>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">📈</div><h3>Paid Advertising</h3><p>Google, Meta, and LinkedIn ads that convert — managed by certified specialists with a focus on ROI.</p></div>
+    <div class="service-card"><div class="service-icon">🔍</div><h3>SEO & Content</h3><p>Rank higher, attract the right traffic, and build long-term organic growth with data-backed strategies.</p></div>
+    <div class="service-card"><div class="service-icon">✉️</div><h3>Email Marketing</h3><p>Automated flows and campaigns that nurture leads and turn browsers into buyers.</p></div>
+    <div class="service-card"><div class="service-icon">📱</div><h3>Social Media</h3><p>Consistent, on-brand content across platforms that builds audience and drives engagement.</p></div>
+    <div class="service-card"><div class="service-icon">🌐</div><h3>Web Design</h3><p>Fast, conversion-focused websites built to turn visitors into customers — not just look good.</p></div>
+    <div class="service-card"><div class="service-icon">📊</div><h3>Analytics & Reporting</h3><p>Clear dashboards and monthly reports that tell you exactly what's working and what to do next.</p></div>
+  </div>
+</section>
+
+<section class="results" id="results">
+  <div class="results-inner">
+    <div class="section-label">Proven Results</div>
+    <div class="section-title">Real numbers from real clients.</div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="metric">+340%</div>
+        <div class="metric-label">Increase in organic traffic</div>
+        <p>A B2B SaaS company went from 2k to 9k monthly visitors in 6 months through targeted SEO.</p>
+        <span class="industry">SaaS</span>
+      </div>
+      <div class="result-card">
+        <div class="metric">5.2x</div>
+        <div class="metric-label">Return on ad spend</div>
+        <p>An e-commerce brand scaled from $10k to $80k/month revenue through Google Shopping campaigns.</p>
+        <span class="industry">E-Commerce</span>
+      </div>
+      <div class="result-card">
+        <div class="metric">-60%</div>
+        <div class="metric-label">Cost per lead reduction</div>
+        <p>A professional services firm cut lead costs from $120 to $48 through funnel optimisation.</p>
+        <span class="industry">Professional Services</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="section-label">How It Works</div>
+  <div class="section-title">Simple process, serious results.</div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-line"></div>
+      <div class="step-num">1</div>
+      <h3>Free Audit</h3>
+      <p>We analyse your current marketing, website, and competitors to find the biggest opportunities.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-line"></div>
+      <div class="step-num">2</div>
+      <h3>Strategy</h3>
+      <p>A custom growth roadmap built around your goals, budget, and timeline — no cookie-cutter plans.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-line"></div>
+      <div class="step-num">3</div>
+      <h3>Execute</h3>
+      <p>Our team launches and manages your campaigns with weekly optimisations and clear communication.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">4</div>
+      <h3>Scale</h3>
+      <p>We double down on what works and continuously improve to compound your results over time.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>Ready to grow your business?</h2>
+  <p>Get a free marketing audit and find out exactly what's holding your growth back.</p>
+  <button class="btn-white">Book Your Free Audit</button>
+</div>
+
+<footer>
+  <div>Nexus Digital © 2026</div>
+  <div>Designed &amp; built by Yabsira B. — sample redesign concept</div>
+</footer>
+
+</body>
+</html>
